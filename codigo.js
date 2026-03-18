@@ -1,8 +1,10 @@
 
+//Ejercicio 1 +
+console.log(formatearNombre("JUAN"))
 function formatearNombre(nombre){
     return nombre .charAt(0).toUpperCase() + nombre.slice(1).toLowerCase();
 
-//Ejercicio 2 — Contar letras
+//Ejercicio 2 — Contar letras +
 
 console.log(contarLetras("hola mundo"));
 function contarLetras(palabra){
@@ -17,16 +19,24 @@ return CantidadLetras;
 }
 
 
-//ejercicio 3
+//ejercicio 3 +
 function maximo(a, b, c){
     const arrayNumeros = [a, b, c];
     const ord = arrayNumeros.sort((a, b) => b - a);
     const max = ord[0];
     return max;
   }
+//Ejercicio 4 — Validar password
+console.log(ValidarContraseña("NoMeBaño08"))
+function ValidarContraseña(password){
+    let Validacion =false;
+    if(password.length == 8 && /\d/.test(password )){
+        Validacion = true;
+    }
+    return Validacion;
+}
 
-
-//ejercicio 5
+//ejercicio 5 +
 function sumarArray(numeros){
 let sum =0;
 for (let i = 0; i < numeros.length; i++) {
@@ -34,34 +44,25 @@ for (let i = 0; i < numeros.length; i++) {
 }
 return sum;
 }
-
-
-//ejercicio 7
-function obtenerPares(numeros){
-    const numerosPar = numeros.filter(e => e % 2 === 0);
-return numerosPar;
-}
-//Ejercicio 4 — Validar password
-console.log(ValidarContraseña("NoMeBaño08"))
-function ValidarContraseña(password){
-    let Validacion =false;
-    if(password.length == 8 ){
-        Validacion = true;
-    }
-    return Validacion;
-}
-
-
-//Ejercicio 6 - Número mayor de un array
+//Ejercicio 6 - Número mayor de un array +
 const Array1 = [1,40,17,9];
 console.log(mayorNumero(Array1));
 function mayorNumero(numeros)
 {
-const ArrayOrdenado = numeros.sort((a, b ) => a - b);
-let ultimoNum = ArrayOrdenado.length;
-let MayorNum = ArrayOrdenado[ultimoNum];
-return MayorNum;
+    const ArrayOrdenado = numeros.sort((a, b) => a - b);
+    let ultimoNum = ArrayOrdenado.length - 1;
+    let MayorNum = ArrayOrdenado[ultimoNum];
+    return MayorNum;
 }
+//ejercicio 7 +
+function obtenerPares(numeros){
+    const numerosPar = numeros.filter(e => e % 2 === 0);
+return numerosPar;
+}
+
+
+
+
 const usuario = {
 
 
@@ -75,18 +76,21 @@ const usuario = {
 
 
 }
-//ejercicio 9
-function activarUsuario(usuario){
-    usuario.activo = true;
-    return usuario;
-}
+
+//ejercicio 8 +
 console.log(descripcionUsuario(usuario));
 function descripcionUsuario(usuario){
     return console.log('el usuario '+ usuario.nombre + ' tiene '+usuario.edad);
 }
 
+//ejercicio 9 +
+function activarUsuario(usuario){
+    usuario.activo = true;
+    return usuario;
+}
 
-//Ejercicio 10 — Precio total
+
+//Ejercicio 10 — Precio total +
 const productos1 = [
 {nombre:"Mouse", precio:10},
 {nombre:"Teclado", precio:25},
@@ -105,8 +109,6 @@ console.log(calcularTotal(productos1));
 
 
 
-//Ejercicio 12 - filter
-
 const usuarios = [
 
 
@@ -120,15 +122,10 @@ const usuarios = [
 
 
 ]
-//ejercicio 11
+
+//ejercicio 11 +
 function obtenernombres(usuarios){
   let nombres = [];
-
-usuarios.filter(edad => edad>18);
-usuarios.forEach(nombre =>{
-console.log(nombre);
-});
-
 
   for (let i = 0; i < usuarios.length; i++) {
     nombres.push(usuarios[i].nombre);
@@ -138,23 +135,29 @@ console.log(nombre);
   return nombres;
 }
 
+//ejercicio 12 +
+function MayoresDe18(usuarios){
+    let mayores = usuarios.filter(usuario => usuario.edad > 18);
 
-//ejercicio 13
+    mayores.forEach(usuario => {
+        console.log(usuario.nombre);
+    });
+
+    return mayores;
+}
+//ejercicio 13 +
 function obteneredad(usuarios){
 let ttl = [usuarios.edad].reduce((acum,num) => acum + num, 0);
   return ttl;
 }
 
-
+//ejercicio 14 +
+/*
 const producto3 = {
 nombre:"Notebook",
-
-
 precio:1000
-
-
 }
-let {nombre, precio} = producto3;
+let {nombre, precio} = producto3;*/
 
 
 
@@ -167,13 +170,32 @@ const producto2 = [
 ];
 
 
-//ejercicio 17
+//ejercicio 17 +
 function productoscaros(producto2){
   return producto2.filter(p => p.precio > 50);
 }
 console.log( productoscaros(producto2));
+//ejercicio 16 +
+console.log(buscarProducto(producto2, "regla"))
+function buscarProducto(productos, nombre){
+let estaProducto = productos.some(element => element == nombre);
+return estaProducto;
 
+}
 
+//Ejercicio 18 — Promedio +
+
+const Promedio = [9,7,8,8,6,10];
+console.log(CalculoPromedio(Promedio));
+function CalculoPromedio(numeros){
+        let total = 0;
+    for(let i = 0; i< Promedio.length; i++){
+            total += Promedio[i];
+            
+    }
+    let promedioTotal = total / Promedio.length;
+    return promedioTotal;
+}
 //////simulacion api
 const usuarios2 = [
 
@@ -192,22 +214,20 @@ const usuarios2 = [
 
 function oobtenerUsuarios(){
  return usuarios2;
-console.log(buscarProducto(producto2, "regla"))
-function buscarProducto(productos, nombre){
-let estaProducto = productos.some(element => element == nombre);
-return estaProducto;
 
 }
-
+console.log( obtenerUsuarioPorId(3));
  function  obtenerUsuarioPorId(id){
  let resul= usuarios2.find(usuario => usuario.id === id);
     return resul;
 }
-
+console.log(obtenerMayores());
 function obtenerMayores(){
   let result = usuarios2.filter(usuario =>usuario.edad > 18);
 return result
 }
+
+console.log(crearUsuario("Flor", "Sack"));
 function  crearUsuario(nombren, edadn){
    const nuevoId = usuarios2.length + 1;
   const nuevoUsuario = {
@@ -222,18 +242,5 @@ function  crearUsuario(nombren, edadn){
 
   return nuevoUsuario;
 }
-//Ejercicio 18 — Promedio
 
-const Promedio = [9,7,8,8,6,10];
-console.log(CalculoPromedio(Promedio));
-function CalculoPromedio(numeros){
-        let total = 0;
-    for(let i = 0; i< Promedio.length; i++){
-            total += Promedio[i];
-            
-    }
-    let promedioTotal = total / Promedio.length;
-    return promedioTotal;
-}
-}
 }
