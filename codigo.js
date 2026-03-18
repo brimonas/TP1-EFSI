@@ -1,19 +1,22 @@
 //Ejercicio 2 — Contar letras
-contarLetras("hola mundo");
+
+console.log(contarLetras("hola mundo"));
 function contarLetras(palabra){
-    for(let i = 0; i <=  palabra.length; i++){
-        if( palabra.length[i] != " " ){
-            i++;
+    let CantidadLetras = 0;
+    for(let i = 0; i <  palabra.length; i++){
+        if( palabra[i] != ' ' ){
+            CantidadLetras++;
         }
     }
 
-  console.log(i);
+return CantidadLetras;
 }
 
 //Ejercicio 4 — Validar password
+console.log(ValidarContraseña("NoMeBaño08"))
 function ValidarContraseña(password){
     let Validacion =false;
-    if(password.length == 8 && ){
+    if(password.length == 8 ){
         Validacion = true;
     }
     return Validacion;
@@ -21,8 +24,8 @@ function ValidarContraseña(password){
 
 
 //Ejercicio 6 - Número mayor de un array
-const Array = [1,40,17,9];
-console.log(mayorNumero(Array));
+const Array1 = [1,40,17,9];
+console.log(mayorNumero(Array1));
 function mayorNumero(numeros)
 {
 const ArrayOrdenado = numeros.sort((a, b ) => a - b);
@@ -38,27 +41,28 @@ const usuario = {
  edad: 20,
  activo: false
 }
+console.log(descripcionUsuario(usuario));
 function descripcionUsuario(usuario){
-    console.log('el usuario'+ usuario.nombre + 'tiene'+usuario.edad);
+    return console.log('el usuario '+ usuario.nombre + ' tiene '+usuario.edad);
 }
 
 
 //Ejercicio 10 — Precio total
-const productos = [
+const productos1 = [
 {nombre:"Mouse", precio:10},
 {nombre:"Teclado", precio:25},
 {nombre:"Monitor", precio:200}
 ]
 
-function calcularTotal(){
+function calcularTotal(productos1){
     let total = 0;
-    for(let i = 0; i<= productos.length; i++){
-            total =+ productos.precio[i];
-            i++;
+    for(let i = 0; i < productos1.length; i++){
+            total += productos1[i].precio;
+        
     }
-    return total
+    return total;
 }
-console.log (calcularTotal());
+console.log(calcularTotal(productos1));
 
 
 
@@ -72,19 +76,18 @@ const usuarios = [
 ]
 
 usuarios.filter(edad => edad>18);
-
-usuarios.forEach(nombre =>{ //funcion que recibe por parametro otra funcion
-console.log(nombre); //recorre cada elemento mejor que foreach
+usuarios.forEach(nombre =>{
+console.log(nombre);
 });
 
 
 //Ejercicio 14 — Destructuring
 
-const producto = {
+const producto3 = {
 nombre:"Notebook",
 precio:1000
 }
-let {nombre, precio} = producto;
+let {nombre, precio} = producto3;
 
 console.log(nombre);
 console.log(precio);
@@ -98,10 +101,22 @@ const producto2 = [
     {nombre:"regla",precio:800}
 ]
 
-
+console.log(buscarProducto(producto2, "regla"))
 function buscarProducto(productos, nombre){
-const estaJuli = OtroArray.some(element => element ==="juli")
-
+let estaProducto = productos.some(element => element == nombre);
+return estaProducto;
 }
 
 //Ejercicio 18 — Promedio
+
+const Promedio = [9,7,8,8,6,10];
+console.log(CalculoPromedio(Promedio));
+function CalculoPromedio(numeros){
+        let total = 0;
+    for(let i = 0; i< Promedio.length; i++){
+            total += Promedio[i];
+            
+    }
+    let promedioTotal = total / Promedio.length;
+    return promedioTotal;
+}
