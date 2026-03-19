@@ -3,7 +3,7 @@
 console.log(formatearNombre("JUAN"))
 function formatearNombre(nombre){
     return nombre .charAt(0).toUpperCase() + nombre.slice(1).toLowerCase();
-
+}
 //Ejercicio 2 — Contar letras +
 
 console.log(contarLetras("hola mundo"));
@@ -78,10 +78,11 @@ const usuario = {
 }
 
 //ejercicio 8 +
-console.log(descripcionUsuario(usuario));
+
 function descripcionUsuario(usuario){
-    return console.log('el usuario '+ usuario.nombre + ' tiene '+usuario.edad);
+    return 'el usuario '+ usuario.nombre + ' tiene '+usuario.edad;
 }
+console.log(descripcionUsuario(usuario));
 
 //ejercicio 9 +
 function activarUsuario(usuario){
@@ -243,4 +244,4 @@ function  crearUsuario(nombren, edadn){
   return nuevoUsuario;
 }
 
-}
+
